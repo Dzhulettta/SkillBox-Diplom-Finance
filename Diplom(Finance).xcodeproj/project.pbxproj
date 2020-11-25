@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		C36E7734256BC8F000F94F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7733256BC8F000F94F24 /* AppDelegate.swift */; };
 		C36E7736256BC8F000F94F24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7735256BC8F000F94F24 /* SceneDelegate.swift */; };
-		C36E7738256BC8F000F94F24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7737256BC8F000F94F24 /* ViewController.swift */; };
 		C36E773B256BC8F000F94F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36E7739256BC8F000F94F24 /* Main.storyboard */; };
 		C36E773E256BC8F000F94F24 /* Diplom_Finance_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C36E773C256BC8F000F94F24 /* Diplom_Finance_.xcdatamodeld */; };
 		C36E7740256BC8F300F94F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36E773F256BC8F300F94F24 /* Assets.xcassets */; };
 		C36E7743256BC8F300F94F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36E7741256BC8F300F94F24 /* LaunchScreen.storyboard */; };
 		C36E774E256BC8F400F94F24 /* Diplom_Finance_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E774D256BC8F400F94F24 /* Diplom_Finance_Tests.swift */; };
 		C36E7759256BC8F400F94F24 /* Diplom_Finance_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7758256BC8F400F94F24 /* Diplom_Finance_UITests.swift */; };
+		C36E7772256BD90C00F94F24 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7771256BD90C00F94F24 /* CheckInViewController.swift */; };
+		C36E778E256DAB7C00F94F24 /* CheckInViewController2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E778D256DAB7C00F94F24 /* CheckInViewController2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		C36E7730256BC8F000F94F24 /* Diplom(Finance).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diplom(Finance).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36E7733256BC8F000F94F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C36E7735256BC8F000F94F24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C36E7737256BC8F000F94F24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C36E773A256BC8F000F94F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C36E773D256BC8F000F94F24 /* Diplom_Finance_.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diplom_Finance_.xcdatamodel; sourceTree = "<group>"; };
 		C36E773F256BC8F300F94F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		C36E7754256BC8F400F94F24 /* Diplom(Finance)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diplom(Finance)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36E7758256BC8F400F94F24 /* Diplom_Finance_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diplom_Finance_UITests.swift; sourceTree = "<group>"; };
 		C36E775A256BC8F400F94F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36E7771256BD90C00F94F24 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		C36E778D256DAB7C00F94F24 /* CheckInViewController2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 			children = (
 				C36E7733256BC8F000F94F24 /* AppDelegate.swift */,
 				C36E7735256BC8F000F94F24 /* SceneDelegate.swift */,
-				C36E7737256BC8F000F94F24 /* ViewController.swift */,
+				C36E7771256BD90C00F94F24 /* CheckInViewController.swift */,
+				C36E778D256DAB7C00F94F24 /* CheckInViewController2ViewController.swift */,
 				C36E7739256BC8F000F94F24 /* Main.storyboard */,
 				C36E773F256BC8F300F94F24 /* Assets.xcassets */,
 				C36E7741256BC8F300F94F24 /* LaunchScreen.storyboard */,
@@ -261,10 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36E7738256BC8F000F94F24 /* ViewController.swift in Sources */,
 				C36E7734256BC8F000F94F24 /* AppDelegate.swift in Sources */,
+				C36E778E256DAB7C00F94F24 /* CheckInViewController2ViewController.swift in Sources */,
 				C36E7736256BC8F000F94F24 /* SceneDelegate.swift in Sources */,
 				C36E773E256BC8F000F94F24 /* Diplom_Finance_.xcdatamodeld in Sources */,
+				C36E7772256BD90C00F94F24 /* CheckInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
