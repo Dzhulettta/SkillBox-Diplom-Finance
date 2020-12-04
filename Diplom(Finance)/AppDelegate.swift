@@ -7,15 +7,29 @@
 
 import UIKit
 import CoreData
+import Firebase
+//import FirebaseApp
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       FirebaseApp.configure()
+                
+        Auth.auth().addStateDidChangeListener { (auto, user) in
+            if user == nil{
+                showModalAuth()
+            }
+        }
         return true
+        func showModalAuth(){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let newvc = storyboard.instantiateViewController(withIdentifier: "CheckInViewController2") as! CheckInViewController2
+            self.window?.rootViewController?.present(newvc, animated: false, completion: nil)
+        }
     }
 
     // MARK: UISceneSession Lifecycle
@@ -41,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Diplom_Finance_")
+        let container = NSPersistentContainer(name: "ChooseCategories")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

@@ -38,6 +38,7 @@ class CheckInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func goBack(_ sender: Any) {
         viewFirst() 
     }
+    @IBOutlet weak var codSMS: UITextField!
     func viewFirst(){
         recomendationLabel.text = "Введите номер телефона"
         viewOne.isHidden = false
@@ -119,21 +120,37 @@ class CheckInViewController: UIViewController, UITextFieldDelegate {
         goBackOutlet.isHidden = true
       
         numberTextFieldOutlet.delegate = self
+        codSMS.delegate = self
         numberTextFieldOutlet.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        codSMS.addTarget(self, action: #selector(editingChangedSMS), for: .editingChanged)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let preText = numberTextFieldOutlet.text as NSString?, preText.replacingCharacters(in: range, with: string).count <= 17 else {
+       
+        if numberTextFieldOutlet.isHidden == false{
+            guard let preText = numberTextFieldOutlet.text as NSString?, preText.replacingCharacters(in: range, with: string).count <= 17 else {
             return false
+        }
+        } else {
+            guard let preTextSMS = codSMS.text as NSString?, preTextSMS.replacingCharacters(in: range, with: string).count <= 18 else {
+            return false
+        }
         }
         return true
     }
+    
     
     // MARK: - изменяет номер телефона по шаблону
     @objc func editingChanged(){
          let pattern = "+# (###) ###-####"
          let mobile = numberTextFieldOutlet.text
         numberTextFieldOutlet.text = mobile!.applyPatternOnNumbers(pattern: pattern)
+     }
+    
+    @objc func editingChangedSMS(){
+         let pattern = "  #    #    #    # "
+         let mobile = codSMS.text
+        codSMS.text = mobile!.applyPatternOnNumbers(pattern: pattern)
      }
 }
 extension String{
@@ -150,3 +167,17 @@ extension String{
        return pure
     }
  }
+//extension String{
+//    func applyPatternOnNumbersSMS(pattern: String) -> String {
+//        let  replacmentCharacter: Character = "#"
+//        var pure = self.replacingOccurrences( of: "[^۰-۹0-9]", with: "", options: .regularExpression)
+//        for index in 0 ..< pattern.count {
+//            guard index < pure.count else { return pure }
+//            let stringIndex = String.Index.init(encodedOffset: index)
+//            let patternCharacter = pattern[stringIndex]
+//            guard patternCharacter != replacmentCharacter else { continue }
+//            pure.insert(patternCharacter, at: stringIndex)
+//        }
+//       return pure
+//    }
+// }
