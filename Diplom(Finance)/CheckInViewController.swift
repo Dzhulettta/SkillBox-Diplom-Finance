@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
+
+import Firebase
+import FirebaseAuth
+
 
 class CheckInViewController: UIViewController, UITextFieldDelegate {
     
@@ -152,6 +157,7 @@ class CheckInViewController: UIViewController, UITextFieldDelegate {
          let mobile = codSMS.text
         codSMS.text = mobile!.applyPatternOnNumbers(pattern: pattern)
      }
+    
 }
 extension String{
     func applyPatternOnNumbers(pattern: String) -> String {
@@ -167,17 +173,5 @@ extension String{
        return pure
     }
  }
-//extension String{
-//    func applyPatternOnNumbersSMS(pattern: String) -> String {
-//        let  replacmentCharacter: Character = "#"
-//        var pure = self.replacingOccurrences( of: "[^۰-۹0-9]", with: "", options: .regularExpression)
-//        for index in 0 ..< pattern.count {
-//            guard index < pure.count else { return pure }
-//            let stringIndex = String.Index.init(encodedOffset: index)
-//            let patternCharacter = pattern[stringIndex]
-//            guard patternCharacter != replacmentCharacter else { continue }
-//            pure.insert(patternCharacter, at: stringIndex)
-//        }
-//       return pure
-//    }
-// }
+
+

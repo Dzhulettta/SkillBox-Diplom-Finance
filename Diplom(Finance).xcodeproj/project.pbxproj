@@ -18,7 +18,8 @@
 		C36E7759256BC8F400F94F24 /* Diplom_Finance_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7758256BC8F400F94F24 /* Diplom_Finance_UITests.swift */; };
 		C36E7772256BD90C00F94F24 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7771256BD90C00F94F24 /* CheckInViewController.swift */; };
 		C36E778E256DAB7C00F94F24 /* CheckInViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */; };
-		C39B1987256EF70B00592B23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C39B1986256EF70B00592B23 /* GoogleService-Info.plist */; };
+		C37EB0E0258AEB38007A03FA /* MainEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */; };
+		C3F3AD86257A605600997E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F3AD85257A605600997E88 /* GoogleService-Info.plist */; };
 		C3F7F3DD25756D8000C0F9BC /* MainFinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */; };
 		C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */; };
 		C3F7F3FE2576BC1600C0F9BC /* ChooseCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */; };
@@ -70,7 +71,8 @@
 		C36E775A256BC8F400F94F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36E7771256BD90C00F94F24 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController2.swift; sourceTree = "<group>"; };
-		C39B1986256EF70B00592B23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEnterViewController.swift; sourceTree = "<group>"; };
+		C3F3AD85257A605600997E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFinanceViewController.swift; sourceTree = "<group>"; };
 		C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoriesViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				C36E7733256BC8F000F94F24 /* AppDelegate.swift */,
 				C36E7735256BC8F000F94F24 /* SceneDelegate.swift */,
+				C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */,
 				C36E7771256BD90C00F94F24 /* CheckInViewController.swift */,
 				C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */,
 				C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */,
@@ -171,7 +174,7 @@
 				C36E773F256BC8F300F94F24 /* Assets.xcassets */,
 				C36E7741256BC8F300F94F24 /* LaunchScreen.storyboard */,
 				C36E7744256BC8F300F94F24 /* Info.plist */,
-				C39B1986256EF70B00592B23 /* GoogleService-Info.plist */,
+				C3F3AD85257A605600997E88 /* GoogleService-Info.plist */,
 			);
 			path = "Diplom(Finance)";
 			sourceTree = "<group>";
@@ -323,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C36E7743256BC8F300F94F24 /* LaunchScreen.storyboard in Resources */,
-				C39B1987256EF70B00592B23 /* GoogleService-Info.plist in Resources */,
+				C3F3AD86257A605600997E88 /* GoogleService-Info.plist in Resources */,
 				C36E7740256BC8F300F94F24 /* Assets.xcassets in Resources */,
 				C36E773B256BC8F000F94F24 /* Main.storyboard in Resources */,
 			);
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37EB0E0258AEB38007A03FA /* MainEnterViewController.swift in Sources */,
 				C3F7F3DD25756D8000C0F9BC /* MainFinanceViewController.swift in Sources */,
 				C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */,
 				C3F7F4A12578C61F00C0F9BC /* CreateCategoryViewController.swift in Sources */,

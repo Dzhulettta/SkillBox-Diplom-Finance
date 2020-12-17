@@ -7,8 +7,10 @@
 
 import UIKit
 import CoreData
-import Firebase
-//import FirebaseApp
+//import Firebase
+import FirebaseAuth
+import FirebaseCore
+//import FirebaseAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,17 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         Auth.auth().addStateDidChangeListener { (auto, user) in
             if user == nil{
-                showModalAuth()
+                self.showModalAuth()
             }
         }
         return true
+    }
         func showModalAuth(){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newvc = storyboard.instantiateViewController(withIdentifier: "CheckInViewController2") as! CheckInViewController2
             self.window?.rootViewController?.present(newvc, animated: false, completion: nil)
-        }
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -92,4 +94,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
