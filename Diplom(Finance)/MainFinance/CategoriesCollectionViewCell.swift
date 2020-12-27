@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class CategoriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageCategory: UIImageView!
     @IBOutlet weak var labelCategory: UILabel!

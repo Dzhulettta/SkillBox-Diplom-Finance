@@ -7,9 +7,9 @@
 
 import UIKit
 import CoreData
-//import Firebase
+import Firebase
 import FirebaseAuth
-import FirebaseCore
+//import FirebaseCore
 //import FirebaseAnalytics
 
 @UIApplicationMain
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        FirebaseApp.configure()
-                
+            // проверка пользователь зашел или нет
         Auth.auth().addStateDidChangeListener { (auto, user) in
             if user == nil{
                 self.showModalAuth()
@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    // создание модального окошка
         func showModalAuth(){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newvc = storyboard.instantiateViewController(withIdentifier: "CheckInViewController2") as! CheckInViewController2

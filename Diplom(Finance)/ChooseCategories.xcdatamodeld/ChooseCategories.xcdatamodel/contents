@@ -5,7 +5,13 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="used" optional="YES" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="HistoryTable" representedClassName="HistoryTable" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="sum" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="ChooseCategories" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="HistoryTable" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>

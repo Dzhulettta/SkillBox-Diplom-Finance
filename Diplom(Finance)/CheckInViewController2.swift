@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseCore
 
-class CheckInViewController2: UIViewController {
+class CheckInViewController2: UIViewController{
     var enterOrRegictration = 0 // 0-регистрация, 1-вход
-
+    
     @IBAction func next(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -49,7 +52,7 @@ class CheckInViewController2: UIViewController {
     
     @IBAction func cleanPass(_ sender: Any) {
         if avtorisTextField.text == "Регистрация"{
-        passTextField.text = ""
+            passTextField.text = ""
         }
     }
     @IBOutlet weak var emailSmall: UILabel!
@@ -91,9 +94,12 @@ class CheckInViewController2: UIViewController {
         registration()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passTextField.delegate = self
+        
         let enterOrRegictrationChoose = enterOrRegictration
         if enterOrRegictrationChoose == 0{
             registration()
@@ -101,18 +107,40 @@ class CheckInViewController2: UIViewController {
             enter()
         }
     }
+    func alertMistake() {
+        let alertController = UIAlertController(title: "Заполните все поля", message: .none, preferredStyle: .alert)
+        let alertAction1 = UIAlertAction(title: "Ок", style: .default) { (alert) in
+        }
+        alertController.addAction(alertAction1)
+        present(alertController, animated: true, completion:  nil)
+    }
+}
+extension CheckInViewController2: UITextFieldDelegate{
     func textFieldShouldResult(_ textFiel: UITextField) -> Bool{
         let name = nameTextField.text!
         let emall = emailTextField.text!
         let pass = passTextField.text!
-        
-        if (!name.isEmpty && !emall.isEmpty && !pass.isEmpty){
-            enterButton.isEnabled = false
+        if avtorisTextField.text == "Регистрация"{
+            if (!name.isEmpty && !emall.isEmpty && !pass.isEmpty){
+                //enterButton.isEnabled = false
+                Auth.auth().createUser(withEmail: emall, password: pass) { (result, error) in
+                    if error == nil{
+                        if let result = result{
+                            print("Выходит: \(result.user.uid)")
+                        }
+                    }
+                }
+            } else {
+                alertMistake()
+            }
         } else {
-            enterButton.isEnabled = true
+            if (!emall.isEmpty && !pass.isEmpty){
+                
+            } else {
+                alertMistake()
+            }
         }
-        
         return true
     }
-
+    
 }

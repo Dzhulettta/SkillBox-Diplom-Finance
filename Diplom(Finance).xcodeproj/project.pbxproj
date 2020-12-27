@@ -19,6 +19,8 @@
 		C36E7772256BD90C00F94F24 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7771256BD90C00F94F24 /* CheckInViewController.swift */; };
 		C36E778E256DAB7C00F94F24 /* CheckInViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */; };
 		C37EB0E0258AEB38007A03FA /* MainEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */; };
+		C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */; };
+		C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */; };
 		C3F3AD86257A605600997E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F3AD85257A605600997E88 /* GoogleService-Info.plist */; };
 		C3F7F3DD25756D8000C0F9BC /* MainFinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */; };
 		C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */; };
@@ -72,6 +74,8 @@
 		C36E7771256BD90C00F94F24 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController2.swift; sourceTree = "<group>"; };
 		C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEnterViewController.swift; sourceTree = "<group>"; };
+		C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHistory.swift; sourceTree = "<group>"; };
+		C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		C3F3AD85257A605600997E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFinanceViewController.swift; sourceTree = "<group>"; };
 		C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -166,8 +170,8 @@
 				C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */,
 				C36E7771256BD90C00F94F24 /* CheckInViewController.swift */,
 				C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */,
-				C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */,
-				C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */,
+				C3F7F447257814F700C0F9BC /* ChooseCategories.xcdatamodeld */,
+				C3CB929925969B1000B32A9F /* MainFinance */,
 				C3F7F446257814AE00C0F9BC /* ChooseCategories */,
 				C3F7F4A52578C62C00C0F9BC /* CreateCategory */,
 				C36E7739256BC8F000F94F24 /* Main.storyboard */,
@@ -197,12 +201,22 @@
 			path = "Diplom(Finance)UITests";
 			sourceTree = "<group>";
 		};
+		C3CB929925969B1000B32A9F /* MainFinance */ = {
+			isa = PBXGroup;
+			children = (
+				C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */,
+				C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */,
+				C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */,
+				C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */,
+			);
+			path = MainFinance;
+			sourceTree = "<group>";
+		};
 		C3F7F446257814AE00C0F9BC /* ChooseCategories */ = {
 			isa = PBXGroup;
 			children = (
 				C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */,
 				C3F7F4052576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift */,
-				C3F7F447257814F700C0F9BC /* ChooseCategories.xcdatamodeld */,
 			);
 			path = ChooseCategories;
 			sourceTree = "<group>";
@@ -462,8 +476,10 @@
 				C3F7F4A12578C61F00C0F9BC /* CreateCategoryViewController.swift in Sources */,
 				C36E7734256BC8F000F94F24 /* AppDelegate.swift in Sources */,
 				C3F7F4062576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift in Sources */,
+				C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */,
 				C36E778E256DAB7C00F94F24 /* CheckInViewController2.swift in Sources */,
 				C3F7F4BE2578C83500C0F9BC /* CreateCategoryCollectionViewCell.swift in Sources */,
+				C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */,
 				C36E7736256BC8F000F94F24 /* SceneDelegate.swift in Sources */,
 				C3F7F4C32578DC4F00C0F9BC /* UserDefaults.swift in Sources */,
 				C3F7F3FE2576BC1600C0F9BC /* ChooseCategoriesViewController.swift in Sources */,
