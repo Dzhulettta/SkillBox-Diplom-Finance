@@ -10,8 +10,12 @@
         <attribute name="label" optional="YES" attributeType="String"/>
         <attribute name="sum" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="SetLimit" representedClassName="SetLimit" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="ChooseCategories" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="HistoryTable" positionX="-54" positionY="18" width="128" height="88"/>
+        <element name="SetLimit" positionX="-36" positionY="45" width="128" height="58"/>
     </elements>
 </model>

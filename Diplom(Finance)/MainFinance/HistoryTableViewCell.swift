@@ -7,23 +7,24 @@
 
 import UIKit
 import CoreData
-import CoreImage
+//import CoreImage
 
 class HistoryTableViewCell: UITableViewCell {
+    
     var copyCoreDataHistory = CoreDataHistory()
-
+    
     @IBOutlet weak var imageHistory: UIImageView!
     @IBOutlet weak var labelHistory: UILabel!
     @IBOutlet weak var sumHistory: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-   
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.copyCoreDataHistory.appToCoreDate()
-       
+        
     }
     func initCell(item: NSManagedObject){
         
@@ -33,23 +34,28 @@ class HistoryTableViewCell: UITableViewCell {
         
         labelHistory.text = item.value(forKey: "label") as? String
         
-        
-        let imageString = item.value(forKey: "image") as! String
-        print("Картинка ну ка: \(imageString)")
-     
-
+        if let imageString = item.value(forKey: "image") as? String, let image = UIImage(named: imageString){
+            imageHistory.image = image
+            print("Картинка ну ка: \(image)")
+        }
     }
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-
-        //dismissViewControllerAnimated(true, completion: nil)
-
-        let newImageData = image.jpegData(compressionQuality: 1)
-        let myImageFromData = UIImage(data: newImageData!)
-        print("Что-нибудь: \(myImageFromData)")
-    }
-
-   
+    func initCellEmpty(){
+        sumHistory.text = ""
+        labelHistory.text = "Покупок еще нет"
+        imageHistory.image = UIImage(named: "79")
     
+}
+//    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+//
+//        //dismissViewControllerAnimated(true, completion: nil)
+//
+//        let newImageData = image.jpegData(compressionQuality: 1)
+//        let myImageFromData = UIImage(data: newImageData!)
+//        print("Что-нибудь: \(myImageFromData)")
+//    }
+
+
+
 //    func getImage(from string: String) -> UIImage? {
 //        guard let url = URL(string: string)
 //        else {
@@ -66,5 +72,5 @@ class HistoryTableViewCell: UITableViewCell {
 //        }
 //        return image
 //    }
-    
+
 }

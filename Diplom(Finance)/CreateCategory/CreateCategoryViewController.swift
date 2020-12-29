@@ -36,6 +36,13 @@ class CreateCategoryViewController: UIViewController {
 
         saveNewCategoryOutlet.isEnabled = false
         saveNewCategoryOutlet.backgroundColor = .systemGray
+        saveNewCategoryOutlet.layer.cornerRadius = 7.5
+    }
+    func checkOut(){
+        if (nameFieldOutlet.text != "") {
+            saveNewCategoryOutlet.isEnabled = true
+            saveNewCategoryOutlet.backgroundColor = .systemBlue
+        }
     }
 }
 extension CreateCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource{

@@ -21,6 +21,8 @@
 		C37EB0E0258AEB38007A03FA /* MainEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */; };
 		C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */; };
 		C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */; };
+		C3CB941325980DBB00B32A9F /* SetLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB941225980DBB00B32A9F /* SetLimit.swift */; };
+		C3CB9454259901E500B32A9F /* AnalyticsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */; };
 		C3F3AD86257A605600997E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F3AD85257A605600997E88 /* GoogleService-Info.plist */; };
 		C3F7F3DD25756D8000C0F9BC /* MainFinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */; };
 		C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */; };
@@ -76,6 +78,8 @@
 		C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEnterViewController.swift; sourceTree = "<group>"; };
 		C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHistory.swift; sourceTree = "<group>"; };
 		C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		C3CB941225980DBB00B32A9F /* SetLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLimit.swift; sourceTree = "<group>"; };
+		C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsSwiftUIView.swift; sourceTree = "<group>"; };
 		C3F3AD85257A605600997E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFinanceViewController.swift; sourceTree = "<group>"; };
 		C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -167,16 +171,17 @@
 			children = (
 				C36E7733256BC8F000F94F24 /* AppDelegate.swift */,
 				C36E7735256BC8F000F94F24 /* SceneDelegate.swift */,
+				C36E7741256BC8F300F94F24 /* LaunchScreen.storyboard */,
 				C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */,
 				C36E7771256BD90C00F94F24 /* CheckInViewController.swift */,
 				C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */,
+				C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */,
 				C3F7F447257814F700C0F9BC /* ChooseCategories.xcdatamodeld */,
 				C3CB929925969B1000B32A9F /* MainFinance */,
 				C3F7F446257814AE00C0F9BC /* ChooseCategories */,
 				C3F7F4A52578C62C00C0F9BC /* CreateCategory */,
 				C36E7739256BC8F000F94F24 /* Main.storyboard */,
 				C36E773F256BC8F300F94F24 /* Assets.xcassets */,
-				C36E7741256BC8F300F94F24 /* LaunchScreen.storyboard */,
 				C36E7744256BC8F300F94F24 /* Info.plist */,
 				C3F3AD85257A605600997E88 /* GoogleService-Info.plist */,
 			);
@@ -208,6 +213,7 @@
 				C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */,
 				C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */,
 				C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */,
+				C3CB941225980DBB00B32A9F /* SetLimit.swift */,
 			);
 			path = MainFinance;
 			sourceTree = "<group>";
@@ -473,7 +479,9 @@
 				C37EB0E0258AEB38007A03FA /* MainEnterViewController.swift in Sources */,
 				C3F7F3DD25756D8000C0F9BC /* MainFinanceViewController.swift in Sources */,
 				C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */,
+				C3CB9454259901E500B32A9F /* AnalyticsSwiftUIView.swift in Sources */,
 				C3F7F4A12578C61F00C0F9BC /* CreateCategoryViewController.swift in Sources */,
+				C3CB941325980DBB00B32A9F /* SetLimit.swift in Sources */,
 				C36E7734256BC8F000F94F24 /* AppDelegate.swift in Sources */,
 				C3F7F4062576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift in Sources */,
 				C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */,
