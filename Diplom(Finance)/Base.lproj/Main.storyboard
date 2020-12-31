@@ -743,29 +743,41 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgi-4o-KLm">
                                 <rect key="frame" x="15" y="93" width="384" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chooseCategoriesCell" id="1HI-Al-R4o" customClass="ChooseCategoriesTableViewCell" customModule="Diplom_Finance_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chooseCategoriesCell" id="1HI-Al-R4o" customClass="ChooseCategoriesTableViewCell" customModule="Diplom_Finance_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="384" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1HI-Al-R4o" id="dsd-In-AJl">
-                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUH-Xr-bfX">
-                                                    <rect key="frame" x="20" y="11.5" width="312" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="344" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-re-6GW">
+                                                    <rect key="frame" x="344" y="12" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="JWO-pG-z46"/>
+                                                        <constraint firstAttribute="width" constant="20" id="YdT-Za-YmG"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wUH-Xr-bfX" firstAttribute="leading" secondItem="dsd-In-AJl" secondAttribute="leadingMargin" id="0mv-Xq-tMW"/>
+                                                <constraint firstItem="lAW-re-6GW" firstAttribute="centerY" secondItem="wUH-Xr-bfX" secondAttribute="centerY" id="BAn-GY-kBv"/>
+                                                <constraint firstAttribute="trailing" secondItem="lAW-re-6GW" secondAttribute="trailing" constant="20" symbolic="YES" id="Yxl-yp-VqT"/>
                                                 <constraint firstItem="wUH-Xr-bfX" firstAttribute="trailing" secondItem="dsd-In-AJl" secondAttribute="trailingMargin" id="fMu-96-VjO"/>
                                                 <constraint firstItem="wUH-Xr-bfX" firstAttribute="centerY" secondItem="dsd-In-AJl" secondAttribute="centerY" id="sHe-hD-xil"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="categoryLabel" destination="wUH-Xr-bfX" id="dYl-T9-WNR"/>
+                                            <outlet property="checkmark" destination="lAW-re-6GW" id="2eM-vf-dW3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

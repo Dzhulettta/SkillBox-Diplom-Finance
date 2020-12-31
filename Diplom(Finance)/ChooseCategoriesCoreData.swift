@@ -1,32 +1,32 @@
 //
-//  CoreDataHistory.swift
+//  ChooseCategoriesCoreData.swift
 //  Diplom(Finance)
 //
-//  Created by Юлия Чужинова on 26.12.2020.
+//  Created by Юлия Чужинова on 29.12.2020.
 //
 
 import UIKit
 import Foundation
 import CoreData
 
-class CoreDataHistory {
-    static let shared = CoreDataHistory()
-    var coreDataHistory: [NSManagedObject] = []
+class ChooseCategoriesCoreData {
+    static let shared = ChooseCategoriesCoreData()
+    var chooseCategoriesCoreData: [NSManagedObject] = []
     
     //MARK: - работа в базе
     func appToCoreDate () {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "HistoryTable")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ChooseCategories")
         do {
-            coreDataHistory = try! context.fetch(fetchRequest) as? [NSManagedObject] ?? [NSManagedObject]()
+            chooseCategoriesCoreData = try! context.fetch(fetchRequest) as? [NSManagedObject] ?? [NSManagedObject]()
         }
     }
     
     //MARK: - добавление новых ячеек в базе
     
-    func addToCoreDate (sum: String, label: String, image: String) {
+    func addToCoreDate (image: String, name: String, used: Bool) {
         
         appToCoreDate ()
 
@@ -34,18 +34,18 @@ class CoreDataHistory {
         
         let context = appDelegate.persistentContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "HistoryTable", in: context) else { return }
+        guard let entity = NSEntityDescription.entity(forEntityName: "ChooseCategories", in: context) else { return }
         
-        let productToAdd = NSManagedObject.init(entity: entity, insertInto: context)
+        let categoryToAdd = NSManagedObject.init(entity: entity, insertInto: context)
         
-        productToAdd.setValue(sum, forKey: "sum")
-        productToAdd.setValue(label, forKey: "label")
-        productToAdd.setValue(image, forKey: "image")
+        categoryToAdd.setValue(image, forKey: "image")
+        categoryToAdd.setValue(name, forKey: "name")
+        categoryToAdd.setValue(used, forKey: "used")
 
         
         do {
             try! context.save()
-            coreDataHistory.append(productToAdd)
+            chooseCategoriesCoreData.append(categoryToAdd)
         }
         catch let error as NSError {
             print("Error: \(error)")
@@ -54,17 +54,17 @@ class CoreDataHistory {
     
     //MARK: - сохранение изменений в базе
     
-    func changeToCoreDate (sum: String, label: String, image: String) {
+    func changeToCoreDate (image: String, name: String, used: Bool) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "HistoryTable", in: context) else { return }
+        guard let entity = NSEntityDescription.entity(forEntityName: "ChooseCategories", in: context) else { return }
         do {
             try! context.save()
         }
         catch let error as NSError {
             print("Error: \(error)")
         }
-    }
+    }   
 }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ChooseCategoriesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var checkmark: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +23,15 @@ class ChooseCategoriesTableViewCell: UITableViewCell {
 
       
     }
-
+    func initCell(item: NSManagedObject){
+        
+        let name = item.value(forKey: "name") as! String
+        categoryLabel.text = "\(name)"
+        let used = item.value(forKey: "used") as? Bool
+        if used == false{
+            checkmark.image = UIImage(named: "checkin")
+        } else {
+            checkmark.image = UIImage(named: "check")
+        }
+    }
 }

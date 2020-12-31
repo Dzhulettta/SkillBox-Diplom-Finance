@@ -10,15 +10,17 @@ import CoreData
 
 class MainFinanceViewController: UIViewController{
     
-    
+    var coppyChooseCategoriesCoreData = ChooseCategoriesCoreData()
     var copyCoreDataHistory = CoreDataHistory()
     var copyCoreDataSetLimit = CoreDataSetLimit()
+    
     var nameCategory = ""
     var summCategory = ""
     var checkDisplay = false
     @IBOutlet weak var displayLabel: UILabel!
     
-    var categoriesChoose: [String: String] = ["Автомобиль": "41", "Одежда": "10", "Развлечения": "36", "Здоровье": "32", "Красота": "29", "Продукты": "3", "Путешествия": "8", "Подарки": "14", "Дом": "27", "Домашние животные": "26", "Дети": "2", "Ремонт": "16", "Хобби": "39", "Родители": "84", "Долг": "35", "Праздники": "93", "Спорт": "97", "Другое": "75"]
+    var categoriesChoose: [String: String] = [:]
+        //["Автомобиль": "41", "Одежда": "10", "Развлечения": "36", "Здоровье": "32", "Красота": "29", "Продукты": "3", "Путешествия": "8", "Подарки": "14", "Дом": "27", "Домашние животные": "26", "Дети": "2", "Ремонт": "16", "Хобби": "39", "Родители": "84", "Долг": "35", "Праздники": "93", "Спорт": "97", "Другое": "75"]
     //[:]
     
     
@@ -116,6 +118,10 @@ extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoriesCollectionViewCell
+        
+//        for item in coppyChooseCategoriesCoreData.chooseCategoriesCoreData{
+//            if
+//        }
         if categoriesChoose.count != 0{
             var keysArray: [Any] = []
             var valiesArray: [Any] = []

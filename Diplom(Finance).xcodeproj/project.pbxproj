@@ -19,6 +19,8 @@
 		C36E7772256BD90C00F94F24 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7771256BD90C00F94F24 /* CheckInViewController.swift */; };
 		C36E778E256DAB7C00F94F24 /* CheckInViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */; };
 		C37EB0E0258AEB38007A03FA /* MainEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */; };
+		C3CA9838259B217A0016964E /* ChooseCategoriesCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CA9837259B217A0016964E /* ChooseCategoriesCoreData.swift */; };
+		C3CA9936259CB51E0016964E /* FirstAppCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CA9935259CB51E0016964E /* FirstAppCoreData.swift */; };
 		C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */; };
 		C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */; };
 		C3CB941325980DBB00B32A9F /* SetLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB941225980DBB00B32A9F /* SetLimit.swift */; };
@@ -76,6 +78,8 @@
 		C36E7771256BD90C00F94F24 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController2.swift; sourceTree = "<group>"; };
 		C37EB0DF258AEB38007A03FA /* MainEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEnterViewController.swift; sourceTree = "<group>"; };
+		C3CA9837259B217A0016964E /* ChooseCategoriesCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoriesCoreData.swift; sourceTree = "<group>"; };
+		C3CA9935259CB51E0016964E /* FirstAppCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppCoreData.swift; sourceTree = "<group>"; };
 		C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHistory.swift; sourceTree = "<group>"; };
 		C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		C3CB941225980DBB00B32A9F /* SetLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLimit.swift; sourceTree = "<group>"; };
@@ -177,6 +181,10 @@
 				C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */,
 				C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */,
 				C3F7F447257814F700C0F9BC /* ChooseCategories.xcdatamodeld */,
+				C3CA9837259B217A0016964E /* ChooseCategoriesCoreData.swift */,
+				C3CA9935259CB51E0016964E /* FirstAppCoreData.swift */,
+				C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */,
+				C3F7F4052576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift */,
 				C3CB929925969B1000B32A9F /* MainFinance */,
 				C3F7F446257814AE00C0F9BC /* ChooseCategories */,
 				C3F7F4A52578C62C00C0F9BC /* CreateCategory */,
@@ -221,8 +229,6 @@
 		C3F7F446257814AE00C0F9BC /* ChooseCategories */ = {
 			isa = PBXGroup;
 			children = (
-				C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */,
-				C3F7F4052576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift */,
 			);
 			path = ChooseCategories;
 			sourceTree = "<group>";
@@ -489,6 +495,8 @@
 				C3F7F4BE2578C83500C0F9BC /* CreateCategoryCollectionViewCell.swift in Sources */,
 				C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */,
 				C36E7736256BC8F000F94F24 /* SceneDelegate.swift in Sources */,
+				C3CA9936259CB51E0016964E /* FirstAppCoreData.swift in Sources */,
+				C3CA9838259B217A0016964E /* ChooseCategoriesCoreData.swift in Sources */,
 				C3F7F4C32578DC4F00C0F9BC /* UserDefaults.swift in Sources */,
 				C3F7F3FE2576BC1600C0F9BC /* ChooseCategoriesViewController.swift in Sources */,
 				C3F7F449257814F700C0F9BC /* ChooseCategories.xcdatamodeld in Sources */,
