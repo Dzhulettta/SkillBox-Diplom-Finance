@@ -9,18 +9,19 @@ import UIKit
 import CoreData
 
 class ChooseCategoriesViewController: UIViewController {
-    
+   
     var coppyChooseCategoriesCoreData = ChooseCategoriesCoreData()
     var copyFirstAppCoreData = FirstAppCoreData()
     
     var categoriesChoose: [String: String] = ["Автомобиль": "41", "Одежда": "10", "Развлечения": "36", "Здоровье": "32", "Красота": "29", "Продукты": "3", "Путешествия": "8", "Подарки": "14", "Дом": "27", "Домашние животные": "26", "Дети": "2", "Ремонт": "16", "Хобби": "39", "Родители": "84", "Долг": "35", "Праздники": "93", "Спорт": "97", "Другое": "75"]
     
     @IBAction func createCategory(_ sender: Any) {
-        
+      
     }
 
     @IBAction func nextButton(_ sender: Any) {
         dismiss(animated: true) {
+            
         }
     }
     @IBOutlet weak var chooseCategoriesTable: UITableView!

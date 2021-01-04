@@ -11,6 +11,6 @@ class CreateCategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageNewCategory: UIImageView!
     
-    @IBOutlet weak var chooseButtonOutlet: UIButton!
-    @IBOutlet weak var chooseButton: UIButton!
+    @IBOutlet weak var chooseImage: UILabel!
+
 }

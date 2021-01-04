@@ -63,12 +63,12 @@ extension CreateCategoryViewController: UICollectionViewDelegate, UICollectionVi
     //MARK: - Нажатие на ячейку
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createCell", for: indexPath) as! CreateCategoryCollectionViewCell
-        cell.chooseButtonOutlet.isHidden = false
-        cell.chooseButtonOutlet.backgroundColor = UIColor(named: "1")
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createCell", for: indexPath) as! CreateCategoryCollectionViewCell
+        //cell.chooseImage.isHidden = false
+        cell.chooseImage.backgroundColor = .systemBlue
+       
+        collectionImages.reloadData()
        // performSegue(withIdentifier: "showProductDetail", sender: collections[indexPath.row])
     }
  
