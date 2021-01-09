@@ -10,7 +10,7 @@ import CoreData
 
 class ChooseCategoriesViewController: UIViewController {
    
-    var coppyChooseCategoriesCoreData = ChooseCategoriesCoreData()
+    var copyChooseCategoriesCoreData = ChooseCategoriesCoreData()
     var copyFirstAppCoreData = FirstAppCoreData()
     
     var categoriesChoose: [String: String] = ["Автомобиль": "41", "Одежда": "10", "Развлечения": "36", "Здоровье": "32", "Красота": "29", "Продукты": "3", "Путешествия": "8", "Подарки": "14", "Дом": "27", "Домашние животные": "26", "Дети": "2", "Ремонт": "16", "Хобби": "39", "Родители": "84", "Долг": "35", "Праздники": "93", "Спорт": "97", "Другое": "75"]
@@ -37,29 +37,27 @@ class ChooseCategoriesViewController: UIViewController {
             copyFirstAppCoreData.addToCoreDate(first: true)
         }
                appCategories()
-        print("Категории равны: \(coppyChooseCategoriesCoreData.chooseCategoriesCoreData )")
+        print("Категории равны: \(copyChooseCategoriesCoreData.chooseCategoriesCoreData )")
     }
     func addCategories(){
-        for (name, numberImage) in categoriesChoose{
-            let name = name
-            let numberImage = numberImage
-            //coppyChooseCategoriesCoreData.appToCoreDate()
-            coppyChooseCategoriesCoreData.addToCoreDate(image: "\(numberImage)", name: "\(name)", used: false)
-            appCategories()
+        let filtered = categoriesChoose.filter { $0 < $1 }
+        for (key, value) in categoriesChoose{
+            let name = key
+            let numberImage = value
+            copyChooseCategoriesCoreData.addToCoreDate(image: numberImage, name: name, used: false)
         }
-       // coppyChooseCategoriesCoreData.appToCoreDate()
+        appCategories()
     }
+    
     func appCategories(){
-        coppyChooseCategoriesCoreData.appToCoreDate()
+        copyChooseCategoriesCoreData.appToCoreDate()
         chooseCategoriesTable.reloadData()
     }
 }
 extension ChooseCategoriesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //coppyChooseCategoriesCoreData.appToCoreDate()
-        if  coppyChooseCategoriesCoreData.chooseCategoriesCoreData.count != 0{
-            let count = coppyChooseCategoriesCoreData.chooseCategoriesCoreData.count
-            //print("Количество печатает")
+        if  copyChooseCategoriesCoreData.chooseCategoriesCoreData.count != 0{
+            let count = copyChooseCategoriesCoreData.chooseCategoriesCoreData.count
            return count
         } else {
            return 0
@@ -68,11 +66,12 @@ extension ChooseCategoriesViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCategoriesCell", for: indexPath) as! ChooseCategoriesTableViewCell
-        
-        if coppyChooseCategoriesCoreData.chooseCategoriesCoreData.count != 0{
+        copyChooseCategoriesCoreData.appToCoreDate()
+
+        if copyChooseCategoriesCoreData.chooseCategoriesCoreData.count != 0{
          
            // for item in coppyChooseCategoriesCoreData.chooseCategoriesCoreData{
-                let category = coppyChooseCategoriesCoreData.chooseCategoriesCoreData[indexPath.row]
+                let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData[indexPath.row]
                 
                 cell.initCell(item: category)
 
@@ -92,7 +91,7 @@ extension ChooseCategoriesViewController: UITableViewDelegate, UITableViewDataSo
       
         let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCategoriesCell", for: indexPath) as! ChooseCategoriesTableViewCell
         
-        let category = coppyChooseCategoriesCoreData.chooseCategoriesCoreData[indexPath.row]
+        let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData[indexPath.row]
        // print("Категории печатает: \(category.value(forKey: "used") as! Bool)")
         
         if category == category{
@@ -102,30 +101,12 @@ extension ChooseCategoriesViewController: UITableViewDelegate, UITableViewDataSo
             if category.value (forKey: "used") as? Bool == false {
                 cell.checkmark.image = UIImage(named: "checkin")
                 let used = category.value (forKey: "used") as? Bool
-                coppyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: !used!)
+                copyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: !used!)
             } else {
                 cell.checkmark.image = UIImage(named: "check")
                 let used = category.value (forKey: "used") as? Bool
-                coppyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: !used!)
-               
+                copyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: !used!)
             }
-            
-            
-//        if (category.value(forKey: "used") as! Bool) == false{
-//          //  appCategories()
-//            let image = category.value(forKey: "image") as! String
-//            let name = category.value(forKey: "name") as! String
-//            coppyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: true)
-//            cell.checkmark.image = UIImage(named: "check")
-//           // appCategories()
-//
-//        } else {
-//            let image = category.value(forKey: "image") as! String
-//            let name = category.value(forKey: "name") as! String
-//            coppyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: false)
-//            cell.checkmark.image = UIImage(named: "checkin")
-//            //appCategories()
-//        }
         }
         appCategories()
     }

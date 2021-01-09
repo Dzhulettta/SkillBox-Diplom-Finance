@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AAF1FAE2D55658CD1F11FECB /* Pods_Diplom_Finance__Diplom_Finance_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB858E20F11302A521F25CFA /* Pods_Diplom_Finance__Diplom_Finance_UITests.framework */; };
 		C1786D68A132216A9327E30A /* Pods_Diplom_Finance_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85ABF12C61505A9C8E9BAF01 /* Pods_Diplom_Finance_.framework */; };
+		C312061B25A529CD00D8F08E /* AnaliticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C312061A25A529CD00D8F08E /* AnaliticsViewController.swift */; };
+		C35FF9F625A77DA200EA2F35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C35FF9F525A77DA200EA2F35 /* GoogleService-Info.plist */; };
 		C36E7734256BC8F000F94F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7733256BC8F000F94F24 /* AppDelegate.swift */; };
 		C36E7736256BC8F000F94F24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E7735256BC8F000F94F24 /* SceneDelegate.swift */; };
 		C36E773B256BC8F000F94F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36E7739256BC8F000F94F24 /* Main.storyboard */; };
@@ -23,9 +25,8 @@
 		C3CA9936259CB51E0016964E /* FirstAppCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CA9935259CB51E0016964E /* FirstAppCoreData.swift */; };
 		C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */; };
 		C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */; };
-		C3CB941325980DBB00B32A9F /* SetLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB941225980DBB00B32A9F /* SetLimit.swift */; };
+		C3CB941325980DBB00B32A9F /* SetLimitUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB941225980DBB00B32A9F /* SetLimitUserDefaults.swift */; };
 		C3CB9454259901E500B32A9F /* AnalyticsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */; };
-		C3F3AD86257A605600997E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F3AD85257A605600997E88 /* GoogleService-Info.plist */; };
 		C3F7F3DD25756D8000C0F9BC /* MainFinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */; };
 		C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */; };
 		C3F7F3FE2576BC1600C0F9BC /* ChooseCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */; };
@@ -62,6 +63,8 @@
 		6D672671AC9073C5727E2014 /* Pods-Diplom(Finance).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diplom(Finance).debug.xcconfig"; path = "Target Support Files/Pods-Diplom(Finance)/Pods-Diplom(Finance).debug.xcconfig"; sourceTree = "<group>"; };
 		78E2FCAB3FF1B4D5D5EB1599 /* Pods-Diplom(Finance).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diplom(Finance).release.xcconfig"; path = "Target Support Files/Pods-Diplom(Finance)/Pods-Diplom(Finance).release.xcconfig"; sourceTree = "<group>"; };
 		85ABF12C61505A9C8E9BAF01 /* Pods_Diplom_Finance_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diplom_Finance_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C312061A25A529CD00D8F08E /* AnaliticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaliticsViewController.swift; sourceTree = "<group>"; };
+		C35FF9F525A77DA200EA2F35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C36E7730256BC8F000F94F24 /* Diplom(Finance).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diplom(Finance).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36E7733256BC8F000F94F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C36E7735256BC8F000F94F24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,9 +85,8 @@
 		C3CA9935259CB51E0016964E /* FirstAppCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppCoreData.swift; sourceTree = "<group>"; };
 		C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHistory.swift; sourceTree = "<group>"; };
 		C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		C3CB941225980DBB00B32A9F /* SetLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLimit.swift; sourceTree = "<group>"; };
+		C3CB941225980DBB00B32A9F /* SetLimitUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLimitUserDefaults.swift; sourceTree = "<group>"; };
 		C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsSwiftUIView.swift; sourceTree = "<group>"; };
-		C3F3AD85257A605600997E88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3F7F3DC25756D8000C0F9BC /* MainFinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFinanceViewController.swift; sourceTree = "<group>"; };
 		C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoriesViewController.swift; sourceTree = "<group>"; };
@@ -180,18 +182,16 @@
 				C36E7771256BD90C00F94F24 /* CheckInViewController.swift */,
 				C36E778D256DAB7C00F94F24 /* CheckInViewController2.swift */,
 				C3CB9453259901E500B32A9F /* AnalyticsSwiftUIView.swift */,
+				C312061A25A529CD00D8F08E /* AnaliticsViewController.swift */,
 				C3F7F447257814F700C0F9BC /* ChooseCategories.xcdatamodeld */,
-				C3CA9837259B217A0016964E /* ChooseCategoriesCoreData.swift */,
 				C3CA9935259CB51E0016964E /* FirstAppCoreData.swift */,
-				C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */,
-				C3F7F4052576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift */,
 				C3CB929925969B1000B32A9F /* MainFinance */,
 				C3F7F446257814AE00C0F9BC /* ChooseCategories */,
 				C3F7F4A52578C62C00C0F9BC /* CreateCategory */,
 				C36E7739256BC8F000F94F24 /* Main.storyboard */,
 				C36E773F256BC8F300F94F24 /* Assets.xcassets */,
+				C35FF9F525A77DA200EA2F35 /* GoogleService-Info.plist */,
 				C36E7744256BC8F300F94F24 /* Info.plist */,
-				C3F3AD85257A605600997E88 /* GoogleService-Info.plist */,
 			);
 			path = "Diplom(Finance)";
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 				C3F7F3F8257572FB00C0F9BC /* CategoriesCollectionViewCell.swift */,
 				C3CB929F2596A89C00B32A9F /* HistoryTableViewCell.swift */,
 				C3CB929A25969BA800B32A9F /* CoreDataHistory.swift */,
-				C3CB941225980DBB00B32A9F /* SetLimit.swift */,
+				C3CB941225980DBB00B32A9F /* SetLimitUserDefaults.swift */,
 			);
 			path = MainFinance;
 			sourceTree = "<group>";
@@ -229,6 +229,9 @@
 		C3F7F446257814AE00C0F9BC /* ChooseCategories */ = {
 			isa = PBXGroup;
 			children = (
+				C3F7F3FD2576BC1600C0F9BC /* ChooseCategoriesViewController.swift */,
+				C3F7F4052576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift */,
+				C3CA9837259B217A0016964E /* ChooseCategoriesCoreData.swift */,
 			);
 			path = ChooseCategories;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C36E7743256BC8F300F94F24 /* LaunchScreen.storyboard in Resources */,
-				C3F3AD86257A605600997E88 /* GoogleService-Info.plist in Resources */,
+				C35FF9F625A77DA200EA2F35 /* GoogleService-Info.plist in Resources */,
 				C36E7740256BC8F300F94F24 /* Assets.xcassets in Resources */,
 				C36E773B256BC8F000F94F24 /* Main.storyboard in Resources */,
 			);
@@ -487,12 +490,13 @@
 				C3F7F3F9257572FB00C0F9BC /* CategoriesCollectionViewCell.swift in Sources */,
 				C3CB9454259901E500B32A9F /* AnalyticsSwiftUIView.swift in Sources */,
 				C3F7F4A12578C61F00C0F9BC /* CreateCategoryViewController.swift in Sources */,
-				C3CB941325980DBB00B32A9F /* SetLimit.swift in Sources */,
+				C3CB941325980DBB00B32A9F /* SetLimitUserDefaults.swift in Sources */,
 				C36E7734256BC8F000F94F24 /* AppDelegate.swift in Sources */,
 				C3F7F4062576BFA300C0F9BC /* ChooseCategoriesTableViewCell.swift in Sources */,
 				C3CB929B25969BA800B32A9F /* CoreDataHistory.swift in Sources */,
 				C36E778E256DAB7C00F94F24 /* CheckInViewController2.swift in Sources */,
 				C3F7F4BE2578C83500C0F9BC /* CreateCategoryCollectionViewCell.swift in Sources */,
+				C312061B25A529CD00D8F08E /* AnaliticsViewController.swift in Sources */,
 				C3CB92A02596A89C00B32A9F /* HistoryTableViewCell.swift in Sources */,
 				C36E7736256BC8F000F94F24 /* SceneDelegate.swift in Sources */,
 				C3CA9936259CB51E0016964E /* FirstAppCoreData.swift in Sources */,
@@ -686,7 +690,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Home.Diplom-Finance-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -705,7 +709,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Home.Diplom-Finance-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

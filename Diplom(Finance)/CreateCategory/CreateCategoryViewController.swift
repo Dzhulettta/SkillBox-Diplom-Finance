@@ -8,6 +8,7 @@
 import UIKit
 
 class CreateCategoryViewController: UIViewController {
+    var copyChooseCategoriesCoreData = ChooseCategoriesCoreData()
     
     @IBOutlet weak var nameFieldOutlet: UITextField!
     @IBAction func nameFieldAction(_ sender: Any) {
@@ -16,17 +17,11 @@ class CreateCategoryViewController: UIViewController {
     
     @IBOutlet weak var saveNewCategoryOutlet: UIButton!
     @IBAction func saveNewCategoryAction(_ sender: Any) {
-        
-        NewCategoryForUserDefaults.shared.nameKey = nameFieldOutlet.text
-        
-        NewCategoryForUserDefaults.shared.usedKey = true
+        self.collectionImages.reloadData()
 
-//        NewCategoryForUserDefaults.shared.imageKey =
-//        if nameFieldOutlet.text?.count != 0 {
-//            saveNewCategoryOutlet.isEnabled = true
-//            saveNewCategoryOutlet.backgroundColor = .systemBlue
-//        }
-        
+        copyChooseCategoriesCoreData.addToCoreDate(image: "\( NewCategoryForUserDefaults.shared.imageKey)", name: "\(nameFieldOutlet.text!)", used: true)
+
+        dismiss(animated: true, completion: .none)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +34,9 @@ class CreateCategoryViewController: UIViewController {
         saveNewCategoryOutlet.layer.cornerRadius = 7.5
     }
     func checkOut(){
-        if (nameFieldOutlet.text != "") {
+        self.collectionImages.reloadData()
+
+        if (nameFieldOutlet.text != "") && NewCategoryForUserDefaults.shared.imageKey != nil{
             saveNewCategoryOutlet.isEnabled = true
             saveNewCategoryOutlet.backgroundColor = .systemBlue
         }
@@ -49,6 +46,7 @@ extension CreateCategoryViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 120
     }
+  
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createCell", for: indexPath) as! CreateCategoryCollectionViewCell
@@ -60,16 +58,28 @@ extension CreateCategoryViewController: UICollectionViewDelegate, UICollectionVi
         cell.imageNewCategory.image =  UIImage(named: "\(imageForCategory[indexPath.row])")
         return cell
     }
+    //MARK: - анимация при нажатии на ячейку
+    
+    func collectionView(_ collectionView: UICollectionView, canEditItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+ 
     //MARK: - Нажатие на ячейку
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createCell", for: indexPath) as! CreateCategoryCollectionViewCell
-        //cell.chooseImage.isHidden = false
+        cell.imageNewCategory.backgroundColor = .red
+        cell.chooseImage.isHidden = false
+        
         cell.chooseImage.backgroundColor = .systemBlue
-       
-        collectionImages.reloadData()
-       // performSegue(withIdentifier: "showProductDetail", sender: collections[indexPath.row])
+      
+        NewCategoryForUserDefaults.shared.imageKey = "\(cell.imageNewCategory.image)"
+        //print("Такое вот описание \(cell.imageNewCategory.image)")
+
+        checkOut()
+            self.collectionImages.reloadData()
     }
- 
+
 }
