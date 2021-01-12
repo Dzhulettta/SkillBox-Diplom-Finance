@@ -17,6 +17,8 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var labelHistory: UILabel!
     @IBOutlet weak var sumHistory: UILabel!
     @IBOutlet weak var data: UILabel!
+    var numberImage: String!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,11 +39,12 @@ class HistoryTableViewCell: UITableViewCell {
             let dataString = item.value(forKey: "data") as? String
               let labelHistoryString = (item.value(forKey: "label") as! String) as! String
             labelHistory.text = labelHistoryString
-            let imageString = ((item.value(forKey: "image") as! String) as! NSString).integerValue
+            let imageString = ((item.value(forKey: "image") as! String) as! NSString)
 
             imageHistory.image = UIImage(named: "\(imageString)")
             print("Картинка ну ка2: \(imageString)")
             print("Картинка ну ка3: \(labelHistoryString)")
+          
 //        }
      
         
@@ -66,6 +69,23 @@ class HistoryTableViewCell: UITableViewCell {
             print("Картинка ну ка3: \(item.value(forKey: "label") as! String)")
         print("Картинка ну ка2: \(imageString)")
     }
+    }
+    
+    func getImage(from string: String) -> UIImage? {
+        guard let url = URL(string: string)
+        else {
+            print("Unable to create URL")
+            return nil
+        }
+        var image: UIImage? = nil
+        do {
+            let data = try Data(contentsOf: url, options: [])
+            image = UIImage(data: data)
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        return image
     }
     func initCellEmpty(){
         sumHistory.text = ""

@@ -12,5 +12,7 @@ class CreateCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageNewCategory: UIImageView!
     
     @IBOutlet weak var chooseImage: UILabel!
+    //var numberImage: String!
 
+    @IBOutlet weak var numberImage: UILabel!
 }

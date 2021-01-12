@@ -23,7 +23,7 @@ class AnaliticsViewController: UIViewController, ChartViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
        // countSumInCategory(item: 0)
-        print("Категории сумма: \(countSumInCategory(item: "Label"))")
+        print("Категории сумма: \(countSumInCategory(item: "Продукты"))")
         pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width / 1.5, height:  self.view.frame.size.height / 1.5)
         pieChart.center = view.convert(CGPoint(x: self.view.center.x, y: self.view.frame.size.height / 3), from: view)
 
@@ -33,11 +33,12 @@ class AnaliticsViewController: UIViewController, ChartViewDelegate {
         var entries = [ChartDataEntry()]
         
         copyCoreDataHistory.appToCoreDate()
-        let countUsedCategory = countCategory() //100%
+        let countUsedCategory = countCategory() as! Int//100%
         
-        for x in 1 ... countUsedCategory{
+        for x in 0 ..< countUsedCategory{
         //for x in 0 ..< 10{
-            entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
+            entries.append(ChartDataEntry(x: Double(100), y: Double(30)))
+          
         }
         let set = PieChartDataSet(entries: entries)
         set.colors = ChartColorTemplates.pastel()
@@ -51,34 +52,50 @@ class AnaliticsViewController: UIViewController, ChartViewDelegate {
         let historyData = copyCoreDataHistory.coreDataHistory
         var count = 1
         if historyData.count != 0{
-            var count = 1
-            var itemOne = historyData[0].value(forKey: "label") as! String
+            var countArray: [String] = []
             for item in historyData{
-                if itemOne != (item.value(forKey: "label") as! String){
-                    count += 1
-                    itemOne = item.value(forKey: "label") as! String
-    }
+                var itemOne = item.value(forKey: "label") as! String
+                countArray.append(itemOne)
             }
+            var filtered  = countArray.removeDuplicates()
+            var count = filtered.count
+            return count
+            print("количество категорий: \(filtered), \(count)")
         }
-        print("количество категорий: \(count)")
+       // print("количество категорий: \(count)")
         return count
     }
-    // возвращает сумму затрат по категории
-    func countSumInCategory(item: String)-> Int{
+    // возвращает название категории и сумму затрат по категории
+    func countSumInCategory(item: String)-> [String: Int]{
         copyCoreDataHistory.appToCoreDate()
         var countSum = 0
+        var arrayForChart: [String: Int] = [:]
         let historyData = copyCoreDataHistory.coreDataHistory
         if historyData.count != 0{
-           // var item = historyData[item].value(forKey: "sum") as! String
             for i in 0 ... (historyData.count - 1){
                 if item == historyData[i].value(forKey: "label") as! String{
                    let sum = historyData[i].value(forKey: "sum") as! String
                     countSum += (sum as! NSString).integerValue
                 }
+                arrayForChart.updateValue(countSum, forKey: item)
             }
-            
+            print(" Для Chart категории: \(arrayForChart)")
         }
-        return countSum
+        return arrayForChart
     }
 
+}
+// убирает из массива дубликаты
+extension Array where Element:Equatable {
+    func removeDuplicates() -> [Element] {
+        var result = [Element]()
+
+        for value in self {
+            if result.contains(value) == false {
+                result.append(value)
+            }
+        }
+
+        return result
+    }
 }

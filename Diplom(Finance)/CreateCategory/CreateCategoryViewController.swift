@@ -19,7 +19,7 @@ class CreateCategoryViewController: UIViewController {
     @IBAction func saveNewCategoryAction(_ sender: Any) {
         self.collectionImages.reloadData()
 
-        copyChooseCategoriesCoreData.addToCoreDate(image: "\( NewCategoryForUserDefaults.shared.imageKey)", name: "\(nameFieldOutlet.text!)", used: true)
+        copyChooseCategoriesCoreData.addToCoreDate(image: "\( NewCategoryForUserDefaults.shared.imageKey!)", name: "\(nameFieldOutlet.text!)", used: true)
 
         dismiss(animated: true, completion: .none)
     }
@@ -55,6 +55,7 @@ extension CreateCategoryViewController: UICollectionViewDelegate, UICollectionVi
         for item in [2 ... 121]{
             imageForCategory.append(contentsOf: item)
         }
+        cell.numberImage.text = "\(imageForCategory[indexPath.row])"
         cell.imageNewCategory.image =  UIImage(named: "\(imageForCategory[indexPath.row])")
         return cell
     }
@@ -68,16 +69,18 @@ extension CreateCategoryViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+        copyChooseCategoriesCoreData.appToCoreDate()
+      
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createCell", for: indexPath) as! CreateCategoryCollectionViewCell
         cell.imageNewCategory.backgroundColor = .red
         cell.chooseImage.isHidden = false
         
         cell.chooseImage.backgroundColor = .systemBlue
-      
-        NewCategoryForUserDefaults.shared.imageKey = "\(cell.imageNewCategory.image)"
-        //print("Такое вот описание \(cell.imageNewCategory.image)")
-
+        
+       ////////////почему все время выбирается не тот номер картинки а не по номеру ячейки??
+        
+        NewCategoryForUserDefaults.shared.imageKey = "\(cell.numberImage.text!)"
+        print("Такое вот описание \(cell.numberImage.text!)")
         checkOut()
             self.collectionImages.reloadData()
     }

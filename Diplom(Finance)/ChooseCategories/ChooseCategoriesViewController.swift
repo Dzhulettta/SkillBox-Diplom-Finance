@@ -44,6 +44,7 @@ class ChooseCategoriesViewController: UIViewController {
         for (key, value) in categoriesChoose{
             let name = key
             let numberImage = value
+            //print("Ключ, значения равны: \(name),\(numberImage)")
             copyChooseCategoriesCoreData.addToCoreDate(image: numberImage, name: name, used: false)
         }
         appCategories()
@@ -92,7 +93,8 @@ extension ChooseCategoriesViewController: UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCategoriesCell", for: indexPath) as! ChooseCategoriesTableViewCell
         
         let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData[indexPath.row]
-       // print("Категории печатает: \(category.value(forKey: "used") as! Bool)")
+        //print("Категории печатает: \(category.value(forKey: "name") as! String)")
+        //print("Категории печатает: \(copyChooseCategoriesCoreData.chooseCategoriesCoreData)")
         
         if category == category{
             let image = category.value(forKey: "image") as! String
@@ -106,6 +108,7 @@ extension ChooseCategoriesViewController: UITableViewDelegate, UITableViewDataSo
                 cell.checkmark.image = UIImage(named: "check")
                 let used = category.value (forKey: "used") as? Bool
                 copyChooseCategoriesCoreData.changeToCoreDate(image: "\(image)", name: "\(name)", used: !used!)
+                print("Должно поменяться: \(category)")
             }
         }
         appCategories()

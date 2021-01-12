@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class MainFinanceViewController: UIViewController{
-    var coppyChooseCategoriesCoreData = ChooseCategoriesCoreData()
+    var copyChooseCategoriesCoreData = ChooseCategoriesCoreData()
     var copyCoreDataHistory = CoreDataHistory()
     
     var nameCategory = ""
@@ -18,8 +18,8 @@ class MainFinanceViewController: UIViewController{
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var historyAllOutlet: UIButton!
     @IBAction func historyAllButton(_ sender: Any) {
-//        tableHistory.autoresizesSubviews = true
-//        tableHistory.bounds.size.height = self.view.bounds.size.height
+        //        tableHistory.autoresizesSubviews = true
+        //        tableHistory.bounds.size.height = self.view.bounds.size.height
     }
     
     
@@ -100,19 +100,17 @@ class MainFinanceViewController: UIViewController{
                 allPrice += priceA
             }
             spendingLabel.text = "\(allPrice)₽"
-            
-                var limit = SetLimitUserDefaults.shared.limitKey ?? 0
-                // print("Сумма: \(limit)")
-                if limit < allPrice{
-                    availableLabel.text = "Вы вышли из бюджета на: \((allPrice - limit))₽"
-                } else {
-                    availableLabel.text = "\(limit - allPrice)₽"
-                }
+            var limit = SetLimitUserDefaults.shared.limitKey ?? 0
+            if limit < allPrice{
+                availableLabel.text = "Вы вышли из бюджета на: \((allPrice - limit))₽"
+            } else {
+                availableLabel.text = "\(limit - allPrice)₽"
+            }
+        }
     }
-    }
-        
+    
     func reload(){
-        coppyChooseCategoriesCoreData.appToCoreDate()
+        copyChooseCategoriesCoreData.appToCoreDate()
         copyCoreDataHistory.appToCoreDate()
         CoreDataHistory.shared.appToCoreDate()
         collectionCategories.reloadData()
@@ -120,7 +118,7 @@ class MainFinanceViewController: UIViewController{
         allSpending()
         
         let limit = SetLimitUserDefaults.shared.limitKey ?? 0
-            limitLabel.text = "\(limit)₽"
+        limitLabel.text = "\(limit)₽"
     }
     func alertLimit() {
         let alertController = UIAlertController(title: "Установите лимит", message: .none, preferredStyle: .alert)
@@ -134,7 +132,6 @@ class MainFinanceViewController: UIViewController{
                 SetLimitUserDefaults.shared.limitKey = Int(newItem)
                 self.limitLabel.text = "\(SetLimitUserDefaults.shared.limitKey!)₽"
                 self.allSpending()
-                    //"\(newItem)₽"
             }
         }
         let alertAction2 = UIAlertAction(title: "Отмена", style: .default) { (alert) in
@@ -148,31 +145,49 @@ class MainFinanceViewController: UIViewController{
 extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        coppyChooseCategoriesCoreData.appToCoreDate()
-        let category = coppyChooseCategoriesCoreData.chooseCategoriesCoreData
+        copyChooseCategoriesCoreData.appToCoreDate()
+        let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData
         var count = 0
-        for item in category{
-            if (item.value(forKey: "used") as! Bool) == true{
-                count += 1
+        if category != nil{
+            for item in category{
+                if (item.value(forKey: "used") as! Bool) == true{
+                    count += 1
+                }
             }
-        }
-        if count != 0{
-            return count
-        } else {
+            if count != 0{
+                return count
+            } else {
+                return 0
+            }
             return 0
         }
+        return 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoriesCollectionViewCell
-        if coppyChooseCategoriesCoreData.chooseCategoriesCoreData.count != 0{
-            let category = coppyChooseCategoriesCoreData.chooseCategoriesCoreData[indexPath.row]
+        copyChooseCategoriesCoreData.appToCoreDate()
+        if copyChooseCategoriesCoreData.chooseCategoriesCoreData.count != 0{
+            var usedCategory: [NSManagedObject] = []
             
-            cell.labelCategory.text = category.value(forKey: "name") as! String
-            cell.imageCategory.image = UIImage(named: "\(category.value(forKey: "image") as! String)")
-            //print("Картинка ну ка: \(category.value(forKey: "image") as! String)")
+            let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData
+            
+            if category != nil{
+                for item in category{
+                    if (item.value(forKey: "used") as! Bool) == true{
+                        usedCategory.append(item)
+                    }
+                }
+                for item in category{
+                    if (item.value(forKey: "used") as! Bool) == true{
+                        cell.initCell(item: usedCategory[indexPath.row]
+                        )
+                        
+                    }
+                }
+            }
         }
-        
         return cell
     }
     
@@ -181,8 +196,8 @@ extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        coppyChooseCategoriesCoreData.appToCoreDate()
-        let category = coppyChooseCategoriesCoreData.chooseCategoriesCoreData
+        copyChooseCategoriesCoreData.appToCoreDate()
+        let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData
         var count = 0
         for item in category{
             if (item.value(forKey: "used") as! Bool) == true{
@@ -201,10 +216,7 @@ extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewD
                 if category == category{
                     let sum = displayLabel.text!
                     let label = cell.labelCategory.text!
-                    
-                    let image = cell.imageCategory.image
-                    // print("Сумма: \(sum)")
-                    //copyCoreDataHistory.addToCoreDate(sum: "\(sum)", label: "\(label)", image: "\(image)", data: "")
+                    let image = cell.imageCategory.image 
                     dataNow(sum: "\(sum)", label: "\(label)", image: "\(image)", data: "")
                     //var data = formatteddate
                     
@@ -236,24 +248,7 @@ extension MainFinanceViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return count
     }
-    //    // возвращает количество ячеек в секции
-    //    func countRowInSection()-> Int{
-    //        let count = countSection()
-    //        copyCoreDataHistory.appToCoreDate()
-    //        let historyData = copyCoreDataHistory.coreDataHistory
-    //        if historyData.count != 0{
-    //            var countRow = 0
-    //            var itemOne = historyData[0].value(forKey: "data") as! String
-    //            for item in [0 ... count - 1]{
-    //                var number = item as! Int
-    //                if itemOne == historyData[number].value(forKey: "data")! as! String{
-    //                    countRow += 1
-    //                }
-    //                return count
-    //            }
-    //            }
-    //        return count
-    //    }
+    
     // возвращает количество ячеек в секции
     func countRowInSection(item: Int)-> Int{
         //let count = countSection()
@@ -264,86 +259,54 @@ extension MainFinanceViewController: UITableViewDelegate, UITableViewDataSource{
             countRow = 0
             var itemOne = historyData[item].value(forKey: "data") as! String
             for item in 0 ... (historyData.count - 1){
-//                var i = item as! Int
+                //                var i = item as! Int
                 if itemOne == historyData[item].value(forKey: "data") as! String{
                     
                     countRow += 1
                 }
             }
-            //return countRow
-            
         }
         return countRow
     }
     
-    //        copyCoreDataHistory.appToCoreDate()
-    //        CoreDataHistory.shared.appToCoreDate()
-    //        let historyData = copyCoreDataHistory.coreDataHistory
-    //        var count = 0
-    //        if historyData.count != 0{
-    //            var itemOne = historyData[0].value(forKey: "data") as! String
-    //            for item in historyData{
-    //                if itemOne != (item.value(forKey: "data") as! String){
-    //                    count += 1
-    //                    itemOne = item.value(forKey: "data") as! String
-    //                }
-    //            }
-    //        }
-    //return count
-    //    }
     // возвращает количество секций
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        //countSection()
         return countSection()
     }
-    //        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //            switch section{
-    //            case 0:
-    //                return 3
-    //            case 1:
-    //                return 5
-    //            case 2:
-    //                return 8
-    //            default:
-    //                break
-    //            }
-    //            return 0
-    //           }
-   //  возвращает подпись секций
-        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            let count: Int = countSection()
-            print ("Count: \(count)")
-            copyCoreDataHistory.appToCoreDate()
-            let historyData = CoreDataHistory.shared.coreDataHistory
-            if historyData.count != 0{
-                //var itemOne = historyData[item].value(forKey: "data") as! String
-                var arrayData1: [String] = []
-                for item in historyData{
-                    let title = "\(item.value(forKey: "data") as! String)"
-                    arrayData1.append(title as! String)
-                }
-                let arrayData = Dictionary(grouping: arrayData1, by: {$0}).filter { $1.count > 1 }.keys
-                
-                print("DataNow qqqq \(arrayData)")
-                
-                
-//////////////// Почему перемешивается при обновлении??????????????
-                for i in arrayData {
-            
-                    var title = "\(i)"
-                    return title
-                }
+    
+    //  возвращает подпись секций
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let count: Int = countSection()
+        //print ("Count: \(count)")
+        copyCoreDataHistory.appToCoreDate()
+        let historyData = CoreDataHistory.shared.coreDataHistory
+        if historyData.count != 0{
+            //var itemOne = historyData[item].value(forKey: "data") as! String
+            var arrayData1: [String] = []
+            for item in historyData{
+                let title = "\(item.value(forKey: "data") as! String)"
+                arrayData1.append(title as! String)
             }
-            return title
+            let arrayData = Dictionary(grouping: arrayData1, by: {$0}).filter { $1.count > 1 }.keys
+            print("DataNow qqqq \(arrayData)")
+            
+            
+            //////////////// Почему перемешивается при обновлении??????????????
+            for i in arrayData {
+                
+                var title = "\(i)"
+                return title
+            }
         }
+        return title
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if copyCoreDataHistory.coreDataHistory.count != 0{
             let countSectionInt = countSection()
             var countRowsInSectionInt = 1
             for item in 0 ..< countSectionInt{
-               // var i: Int = item as! Int
+                // var i: Int = item as! Int
                 var count = countRowInSection(item: item)
                 countRowsInSectionInt = count as! Int
                 return countRowsInSectionInt
@@ -366,13 +329,13 @@ extension MainFinanceViewController: UITableViewDelegate, UITableViewDataSource{
             copyCoreDataHistory.appToCoreDate()
             CoreDataHistory.shared.appToCoreDate()
             let productCD = copyCoreDataHistory.coreDataHistory[indexPath.row]
-//                        cell.labelHistory.text = productCD.value(forKey: "label") as! String
-//                        cell.imageHistory.image = UIImage(named: "\(productCD.value(forKey: "image") as! String)")
-//                        print("Картинка ну ка: \(productCD.value(forKey: "image") as! String)")
-//
-//                        let sumString = productCD.value(forKey: "sum") as? String
-//                        let price = (sumString as! NSString).integerValue
-//                        cell.sumHistory.text = "\(price)₽"
+            //                        cell.labelHistory.text = productCD.value(forKey: "label") as! String
+            //                        cell.imageHistory.image = UIImage(named: "\(productCD.value(forKey: "image") as! String)")
+            //                        print("Картинка ну ка: \(productCD.value(forKey: "image") as! String)")
+            //
+            //                        let sumString = productCD.value(forKey: "sum") as? String
+            //                        let price = (sumString as! NSString).integerValue
+            //                        cell.sumHistory.text = "\(price)₽"
             
             cell.initCell(item: productCD)
             

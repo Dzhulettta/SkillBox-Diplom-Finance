@@ -12,6 +12,7 @@ class ChooseCategoriesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var checkmark: UIImageView!
+    var numberImage: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +25,7 @@ class ChooseCategoriesTableViewCell: UITableViewCell {
       
     }
     func initCell(item: NSManagedObject){
-        
+        let image = item.value(forKey: "image") as! String
         let name = item.value(forKey: "name") as! String
         categoryLabel.text = "\(name)"
         let used = item.value(forKey: "used") as? Bool

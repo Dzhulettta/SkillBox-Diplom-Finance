@@ -872,6 +872,16 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-Et-dXY">
+                                                    <rect key="frame" x="40" y="0.0" width="40" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="7X3-WO-iIy"/>
+                                                        <constraint firstAttribute="width" constant="40" id="wMh-0o-2tF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vn9-nA-7gA" firstAttribute="top" secondItem="D6L-R4-6Fz" secondAttribute="top" constant="5" id="HDy-9g-Zeg"/>
@@ -880,12 +890,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="kzZ-hU-VbT" secondAttribute="trailing" id="d3I-jH-Odm"/>
                                                 <constraint firstAttribute="trailing" secondItem="vn9-nA-7gA" secondAttribute="trailing" constant="5" id="dyv-EU-Ggp"/>
                                                 <constraint firstItem="vn9-nA-7gA" firstAttribute="leading" secondItem="D6L-R4-6Fz" secondAttribute="leading" constant="5" id="j9K-vt-o9i"/>
+                                                <constraint firstAttribute="trailing" secondItem="FaI-Et-dXY" secondAttribute="trailing" id="jXq-P6-Gkc"/>
+                                                <constraint firstItem="FaI-Et-dXY" firstAttribute="top" secondItem="D6L-R4-6Fz" secondAttribute="top" id="swt-GO-RK5"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="80" height="79"/>
                                         <connections>
                                             <outlet property="chooseImage" destination="kzZ-hU-VbT" id="BaG-TU-SNE"/>
                                             <outlet property="imageNewCategory" destination="vn9-nA-7gA" id="jMP-80-z0m"/>
+                                            <outlet property="numberImage" destination="FaI-Et-dXY" id="AEm-s1-fDM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
