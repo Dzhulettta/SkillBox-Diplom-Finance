@@ -13,6 +13,7 @@
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="label" optional="YES" attributeType="String"/>
         <attribute name="sum" optional="YES" attributeType="String"/>
+        <attribute name="used" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="SetLimit" representedClassName="SetLimit" syncable="YES" codeGenerationType="class">
         <attribute name="limit" optional="YES" attributeType="String"/>
@@ -20,7 +21,7 @@
     <elements>
         <element name="ChooseCategories" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="FirstApp" positionX="-45" positionY="27" width="128" height="58"/>
-        <element name="HistoryTable" positionX="-54" positionY="18" width="128" height="103"/>
+        <element name="HistoryTable" positionX="-54" positionY="18" width="128" height="118"/>
         <element name="SetLimit" positionX="-36" positionY="45" width="128" height="58"/>
     </elements>
 </model>

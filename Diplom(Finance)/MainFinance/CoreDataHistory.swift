@@ -26,7 +26,7 @@ class CoreDataHistory {
     
     //MARK: - добавление новых ячеек в базе
     
-    func addToCoreDate (sum: String, label: String, image: String, data: String) {
+    func addToCoreDate (sum: String, label: String, image: String, data: String, used: Bool) {
         
         appToCoreDate ()
 
@@ -42,6 +42,7 @@ class CoreDataHistory {
         productToAdd.setValue(label, forKey: "label")
         productToAdd.setValue(image, forKey: "image")
         productToAdd.setValue(data, forKey: "data")
+        productToAdd.setValue(used, forKey: "used")
         
         do {
             try! context.save()
@@ -54,7 +55,7 @@ class CoreDataHistory {
     
     //MARK: - сохранение изменений в базе
     
-    func changeToCoreDate (sum: String, label: String, image: String, data: String) {
+    func changeToCoreDate (sum: String, label: String, image: String, data: String, used: Bool) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext

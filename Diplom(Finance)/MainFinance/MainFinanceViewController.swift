@@ -29,7 +29,7 @@ class MainFinanceViewController: UIViewController{
         formatter.dateFormat = "dd.MM.YYYY"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)            // указатель временной зоны относительно гринвича
         var formatteddate = formatter.string(from: time as Date)
-        copyCoreDataHistory.addToCoreDate(sum: "\(sum)", label: "\(label)", image: "\(image)", data: "\(formatteddate)")
+        copyCoreDataHistory.addToCoreDate(sum: "\(sum)", label: "\(label)", image: "\(image)", data: "\(formatteddate)", used: true)
     }
     
     @IBAction func numberPrassed(_ sender: UIButton) {
@@ -181,8 +181,7 @@ extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewD
                 }
                 for item in category{
                     if (item.value(forKey: "used") as! Bool) == true{
-                        cell.initCell(item: usedCategory[indexPath.row]
-                        )
+                        cell.initCell(item: usedCategory[indexPath.row])
                         
                     }
                 }
@@ -198,6 +197,8 @@ extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewD
         
         copyChooseCategoriesCoreData.appToCoreDate()
         let category = copyChooseCategoriesCoreData.chooseCategoriesCoreData
+        var usedCategory: [NSManagedObject] = []
+        
         var count = 0
         for item in category{
             if (item.value(forKey: "used") as! Bool) == true{
@@ -214,14 +215,16 @@ extension MainFinanceViewController: UICollectionViewDelegate, UICollectionViewD
             if displayLabel.text != "0"{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoriesCollectionViewCell
                 if category == category{
+                    for item in category{
+                        if (item.value(forKey: "used") as! Bool) == true{
+                            usedCategory.append(item)
+                        }
+                    }
                     let sum = displayLabel.text!
-                    let label = cell.labelCategory.text!
-                    let image = cell.imageCategory.image 
-                    dataNow(sum: "\(sum)", label: "\(label)", image: "\(image)", data: "")
-                    //var data = formatteddate
-                    
+                    let label = usedCategory[indexPath.row].value(forKey: "name")
+                    let image = usedCategory[indexPath.row].value(forKey: "image")
+                    dataNow(sum: "\(sum)", label: "\(label!)", image: "\(image!)", data: "")
                     reload()
-                    //print("Имадж: \(image)")
                 }
             }
             displayLabel.text = "0"
@@ -288,7 +291,7 @@ extension MainFinanceViewController: UITableViewDelegate, UITableViewDataSource{
                 arrayData1.append(title as! String)
             }
             let arrayData = Dictionary(grouping: arrayData1, by: {$0}).filter { $1.count > 1 }.keys
-            print("DataNow qqqq \(arrayData)")
+           // print("DataNow qqqq \(arrayData)")
             
             
             //////////////// Почему перемешивается при обновлении??????????????
@@ -322,23 +325,19 @@ extension MainFinanceViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellHistory", for: indexPath) as! HistoryTableViewCell
         if copyCoreDataHistory.coreDataHistory.count == 0{
-            
-            cell.initCellEmpty()
+                        cell.initCellEmpty()
             return cell
         } else {
             copyCoreDataHistory.appToCoreDate()
             CoreDataHistory.shared.appToCoreDate()
-            let productCD = copyCoreDataHistory.coreDataHistory[indexPath.row]
-            //                        cell.labelHistory.text = productCD.value(forKey: "label") as! String
-            //                        cell.imageHistory.image = UIImage(named: "\(productCD.value(forKey: "image") as! String)")
-            //                        print("Картинка ну ка: \(productCD.value(forKey: "image") as! String)")
-            //
-            //                        let sumString = productCD.value(forKey: "sum") as? String
-            //                        let price = (sumString as! NSString).integerValue
-            //                        cell.sumHistory.text = "\(price)₽"
-            
-            cell.initCell(item: productCD)
-            
+                        var historyCategory: [NSManagedObject] = []
+            let history = copyCoreDataHistory.coreDataHistory
+            if history != nil{
+                for item in history{
+                        cell.initCell(item: history[indexPath.row])
+                }
+                    }
+    
             return cell
         }
     }

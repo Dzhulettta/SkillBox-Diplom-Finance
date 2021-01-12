@@ -15,9 +15,8 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     
     func initCell(item: NSManagedObject){
         var copyChooseCategoriesCoreData = ChooseCategoriesCoreData()
-
+        numberImage = item.value(forKey: "image") as! String
             labelCategory.text = item.value(forKey: "name") as! String
-    imageCategory.image = UIImage(named: "\(item.value(forKey: "image") as! String)")
-    print("Картинка ну ка: \(item.value(forKey: "image") as! String)")
+    imageCategory.image = UIImage(named: "\(numberImage!)")
     }
 }
